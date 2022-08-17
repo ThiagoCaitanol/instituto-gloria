@@ -44,7 +44,7 @@ public class PhotoController {
     	return new ResponseEntity<List<PhotosModel>>(photo, HttpStatus.OK);
     }
     
-    @GetMapping("/selecionar/todos")
+    @GetMapping("/selecionarTodos")
     @ResponseBody
     public ResponseEntity<List<PhotosModel>> photoList(){
     	List<PhotosModel> photo = repository.findAll();

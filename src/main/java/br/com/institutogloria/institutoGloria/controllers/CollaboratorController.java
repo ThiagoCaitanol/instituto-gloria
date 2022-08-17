@@ -45,7 +45,7 @@ public class CollaboratorController {
     	return new ResponseEntity<List<CollaboratorModel>>(collaborator, HttpStatus.OK);
     }
     
-    @GetMapping("/selecionar/todos")
+    @GetMapping("/selecionarTodos")
     @ResponseBody
     public ResponseEntity<List<CollaboratorModel>> collaboratorList(){
     	List<CollaboratorModel> collaborators = repository.findAll();

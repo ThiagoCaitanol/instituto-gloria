@@ -44,7 +44,7 @@ public class PaymentController {
     	return new ResponseEntity<List<PaymentModel>>(payments, HttpStatus.OK);
     }
 
-    @GetMapping("/selecionar/todos")
+    @GetMapping("/selecionarTodos")
     @ResponseBody
     public ResponseEntity<List<PaymentModel>> paymentList(){
     	List<PaymentModel> payments = repository.findAll();

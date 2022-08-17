@@ -45,7 +45,7 @@ public class AdminController {
 	    	return new ResponseEntity<List<AdminModel>>(admin, HttpStatus.OK);
 	    }
 	    
-	    @GetMapping("/selecionar/todos")
+	    @GetMapping("/selecionarTodos")
 	    @ResponseBody
 	    public ResponseEntity<List<AdminModel>> adminList(){
 	    	List<AdminModel> admin = repository.findAll();

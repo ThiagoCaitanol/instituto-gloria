@@ -50,7 +50,7 @@ public class UserController {
     	return new ResponseEntity<List<UserModel>>(user, HttpStatus.OK);
     }
     
-    @GetMapping("/selecionar/todos")
+    @GetMapping("/selecionarTodos")
     @ResponseBody
     public ResponseEntity<List<UserModel>> UserList(){
     	List<UserModel> user = repository.findAll();

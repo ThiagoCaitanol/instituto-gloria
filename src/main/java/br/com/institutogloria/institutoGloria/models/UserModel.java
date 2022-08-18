@@ -21,7 +21,7 @@ public class UserModel {
 
     @Column(nullable = false, length = 11, unique = true)
     private String cpf;
-
+    
     public String getName() {
         return name;
     }

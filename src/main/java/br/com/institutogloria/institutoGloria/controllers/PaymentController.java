@@ -2,7 +2,11 @@ package br.com.institutogloria.institutoGloria.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,14 +50,19 @@ public class PaymentController {
 
     @GetMapping("/selecionarTodos")
     @ResponseBody
-    public ResponseEntity<List<PaymentModel>> paymentList(){
-    	List<PaymentModel> payments = repository.findAll();
-    	
-    	return new ResponseEntity<List<PaymentModel>>(payments, HttpStatus.OK);
+    public Iterable<PaymentModel> getAllPayment(){
+    	return repository.findAll();
+    }
+    
+    @GetMapping(path = "/selecionarPag/{pageNumber}")
+    public Iterable<PaymentModel> getPaymentPage(@PathVariable int pageNumber){
+    	Pageable page = PageRequest.of(pageNumber, 20);
+    	return repository.findAll(page);
     }
     
     @PostMapping("/salvar")
     public @ResponseBody PaymentModel newPayment(
+    		@Valid 
             @RequestParam String name,
             @RequestParam String cpf,
             @RequestParam String email,
